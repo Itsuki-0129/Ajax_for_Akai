@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-language" content="ja" charset="utf-8">
+        <title>選択肢は自由自在</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="../static/js/for_html.js"></script>
+    </head>
+
+    <body>
+      <div class="main">
+        <form class="form_001" method="POST" id="form_001">
+          <select class="soft_ui" name="select_lab" id="select_lab_id" onchange="ajax_lab()">
+            <option value="" hidden>研究室を選択</option>
+            {% for i in lab_list %}
+            <option value="{{lab_list[i]}}">{{i}}</option>
+            {% endfor %}
+          </select>
+
+          <select class="soft_ui" name="select_year" id="select_year_id">
+            <option value=""hidden>テーブルを選択</option>
+          </select>
+        </form>
+      </div>
+    </body>
+</html>
