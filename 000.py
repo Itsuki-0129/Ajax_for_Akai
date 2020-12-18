@@ -17,10 +17,10 @@ def ajax_001():
     print(selected_lab)
     #研究室選択optionのvalueが数字なので、if文で分岐
     if int(selected_lab) == 1:#研究室Aのとき
-        #最終的に返す値を[{'鍵':'値'},{},{},...]といったjson?
-        json_for_js = [{'key':'1985年'}, {'key':'1987年'}]#なんとなくkeyは'key'に。意味なし
+        #最終的に返す値を{テキスト:[テキストの配列], 値:[値の配列]}にする。値は数字に。
+        json_for_js = {'text':['1985年', '1987年'], 'value':[1, 2]}
     elif int(selected_lab) == 2:#研究室Bのとき
-        json_for_js = [{'key':'2077年'}, {'key':'2115年'}, {'key':'3019年'}]
+        json_for_js = {'text':['2077年', '2115年', '3019年'], 'value':[3, 4, 5]}
     return jsonify(json_for_js)
 
 if __name__ == '__main__':

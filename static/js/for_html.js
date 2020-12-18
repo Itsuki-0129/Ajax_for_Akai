@@ -15,16 +15,16 @@ function ajax_lab(){
         //これは別にいらない。<option value=""hidden>選択してください</option>を作るだけ。optionの選択できないけど最初に表示されるやつ。
         let op1 = document.createElement("option");
         op1.value = "";
-        op1.text = ("テーブルを選択");
+        op1.text = ("年度を選択");
         op1.hidden = 1;
         document.getElementById("select_year_id").append(op1);
         //これは別にいらない。
 
         var arr = data;//pythonのajax処理後のデータをarrに格納
-        for(var i=0;i<arr.length;i++){
+        for(var i=0;i<arr['value'].length;i++){
           let op = document.createElement("option");//変数opにoption要素を作る動作をしこむ。発動はしない。
-          op.value = arr[i].key;//.valueでoptionタグのvalue=""を設定。data = arr = [{},{},...]なので、[i]番目で指定、その後.キー名で値を取り出す。
-          op.text = arr[i].key;//.textでoptionタグの間に挟む表示名を設定。表示名。
+          op.value = arr['value'][i];//まず、jsonは~jsonデータ[キー名]~で値が取り出せる。ここでは値が配列なので、さらに[i]番目と指定。
+          op.text = arr['text'][i];//.textでoptionタグの間に挟む表示名を設定。表示名。
           document.getElementById("select_year_id").append(op);//id="select_year_id"のあるタグの中にさっきの仕込んだ動作をぶちかまし発動。
         }
         //↑ここまで
